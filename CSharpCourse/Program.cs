@@ -7,7 +7,25 @@ namespace CSharpCourse
     {
         static void Main(string[] args)
         {
-           
+          
+        }
+
+        static void Overflow()
+        {
+            //checked
+            //{
+            uint x = uint.MaxValue;
+
+            Console.WriteLine(x);
+
+            x = x + 1;
+
+            Console.WriteLine(x);
+
+            x = x - 1;
+
+            Console.WriteLine(x);
+            //}
         }
 
         static void VariablesScope()
@@ -31,7 +49,6 @@ namespace CSharpCourse
             // Console.WriteLine(b);
             // Console.WriteLine(c);
         }
-
         static void Literals()
         {
             int x = 0b11;
