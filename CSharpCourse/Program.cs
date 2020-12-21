@@ -7,9 +7,107 @@ namespace CSharpCourse
     {
         static void Main(string[] args)
         {
-          
+            
         }
+        static void ComparisonOperators()
+        {
+            int x = 1;
+            int y = 2;
 
+            bool areEqual = x == y;
+            Console.WriteLine(areEqual);
+
+            bool result = x > y;
+            Console.WriteLine(result);
+
+            result = x >= y;
+            Console.WriteLine(result);
+
+            result = x < y;
+            Console.WriteLine(result);
+
+            result = x <= y;
+            Console.WriteLine(result);
+
+            result = x != y;
+            Console.WriteLine(result);
+        }
+        static void MathOperations()
+        {
+            int x = 1;
+            int y = 2;
+
+            int z = x + y;
+            int k = x - y;
+            int a = z + k - y;
+
+            Console.WriteLine(z);
+            Console.WriteLine(k);
+            Console.WriteLine(a);
+
+            int b = z * 2;
+            int c = k / 2;
+
+            Console.WriteLine(b);
+            Console.WriteLine(c);
+
+            a = 4 % 2;
+            b = 5 % 2;
+
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+
+            a = 3;
+            a = a * a;
+            // a = a * a * a;
+            Console.WriteLine(a);
+
+            a = 2 + 2 * 2;
+            Console.WriteLine(a);
+
+            a *= 2;
+            Console.WriteLine(a);
+
+            a /= 2;
+            Console.WriteLine(a);
+
+        }
+        static void IncrementDecrementDemo()
+        {
+            int x = 1;
+            x = x + 1;
+            Console.WriteLine(x);
+
+            x++;
+            Console.WriteLine(x);
+
+            ++x;
+            Console.WriteLine(x);
+
+            x = x - 1;
+            x--;
+            --x;
+            Console.WriteLine(x);
+
+            Console.WriteLine("Learn about increment");
+            Console.WriteLine($"Last x state is {x}");
+
+            int j = x++;
+            Console.WriteLine(j);
+            Console.WriteLine(x);
+
+            j = ++x;
+            Console.WriteLine(j);
+            Console.WriteLine(x);
+
+            x += 2;
+            //x = x + 2
+            Console.WriteLine(x);
+
+            j -= 2;
+            // j = j - 2
+            Console.WriteLine(j);
+        }
         static void Overflow()
         {
             //checked
@@ -27,7 +125,6 @@ namespace CSharpCourse
             Console.WriteLine(x);
             //}
         }
-
         static void VariablesScope()
         {
             var a = 1;
