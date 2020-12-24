@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace CSharpCourse
 {
@@ -8,9 +9,49 @@ namespace CSharpCourse
     {
         static void Main(string[] args)
         {
-           
-        }
 
+        }
+        static void StringFormat()
+        {
+            string name = "John";
+            int age = 30;
+            string str1 = string.Format("My name is {0} and I'm {1}", name, age);
+            string str2 = $"My name is {name} and I'm {age}";
+
+            // string str2 = "My name is " + name + " and I'm " + age;
+
+            string str3 = "My name is \nJohn";
+            string str4 = "I'm \t30";
+
+            str3 = $"My name is {Environment.NewLine}John";
+
+            // string str5 = "I'm John and I'm "good" programmer";
+            string str5 = "I'm John and I'm \"good\" programmer";
+
+            // string str6 = "C:\\tmp\\test_file.txt";
+
+            string str6 = @"C:\tmp\test_file.txt";
+
+            double answer = 42.08;
+            // string result = string.Format("{0:d}", answer);
+            // string result2 = string.Format("{0:d4}", answer);
+
+            var result = string.Format("{0:f}", answer);
+            var result2 = string.Format("{0:f1}", answer);
+
+            Console.OutputEncoding = Encoding.UTF8;
+
+            double money = 12.8;
+            result = string.Format("{0:C}", money);
+            result2 = string.Format("{0:C2}", money);
+
+            result = $"{money:C2}";
+
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+
+            Console.WriteLine(money.ToString("C2"));
+            Console.WriteLine(result2);
+        }
         static void StringBuilderDemo()
         {
             StringBuilder sb = new StringBuilder();
