@@ -7,7 +7,7 @@ namespace CSharpCourse
     {
         static void Main(string[] args)
         {
-
+            
         }
     
         static void QueryingStrings()
@@ -39,6 +39,41 @@ namespace CSharpCourse
 
             Console.WriteLine(substrFrom5);
             Console.WriteLine(substrFromTo);
+        }
+        static void StringEmptiness()
+        {
+            string empty = "";
+            string whiteSpaced = " ";
+            string notEmpty = " b";
+            string nullString = null;
+
+            Console.WriteLine("IsNullOrEmpty");
+            bool isNullOrEmpty = string.IsNullOrEmpty(nullString);
+            Console.WriteLine(isNullOrEmpty);
+
+            isNullOrEmpty = string.IsNullOrEmpty(whiteSpaced);
+            Console.WriteLine(isNullOrEmpty);
+
+            isNullOrEmpty = string.IsNullOrEmpty(notEmpty);
+            Console.WriteLine(isNullOrEmpty);
+
+            isNullOrEmpty = string.IsNullOrEmpty(empty);
+            Console.WriteLine(isNullOrEmpty);
+
+            Console.WriteLine();
+            Console.WriteLine("IsNullOrWhiteSpace");
+
+            bool isNullOrWhiteSpace = string.IsNullOrWhiteSpace(nullString);
+            Console.WriteLine(isNullOrWhiteSpace);
+
+            isNullOrWhiteSpace = string.IsNullOrWhiteSpace(whiteSpaced);
+            Console.WriteLine(isNullOrWhiteSpace);
+
+            isNullOrWhiteSpace = string.IsNullOrWhiteSpace(notEmpty);
+            Console.WriteLine(isNullOrWhiteSpace);
+
+            isNullOrWhiteSpace = string.IsNullOrWhiteSpace(empty);
+            Console.WriteLine(isNullOrWhiteSpace);
         }
         static void StaticAndInstaticMembers()
         {
