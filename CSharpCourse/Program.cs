@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace CSharpCourse
 {
@@ -10,6 +11,19 @@ namespace CSharpCourse
            
         }
 
+        static void StringBuilderDemo()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("My ");
+            sb.Append("name ");
+            sb.Append("is ");
+            sb.Append("John ");
+            sb.AppendLine("!");
+            sb.AppendLine("Hello!");
+
+            string str = sb.ToString();
+            Console.WriteLine(str);
+        }
         static void StringModification()
         {
             string nameConcat = string.Concat("My ", "name ", "is ", "John");
@@ -48,7 +62,6 @@ namespace CSharpCourse
             string john = " My name is John ";
             Console.WriteLine(john.Trim());
         }
-    
         static void QueryingStrings()
         {
             string name = "abracadabra";
