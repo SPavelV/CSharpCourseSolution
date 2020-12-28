@@ -9,7 +9,22 @@ namespace CSharpCourse
     {
         static void Main(string[] args)
         {
-           
+
+        }
+
+        static void DateTimeIntro()
+        {
+            DateTime now = DateTime.Now;
+            Console.WriteLine(now.ToString());
+            Console.WriteLine($"It's {now.Date}, {now.Hour}:{now.Minute} ");
+
+            DateTime dt = new DateTime(2016, 2, 28);
+            DateTime newDt = dt.AddDays(1);
+            Console.WriteLine(newDt);
+
+            TimeSpan ts = now - dt;
+            // ts = now.Subtract(dt);
+            Console.WriteLine(ts.Days);
         }
         static void IntroToArray()
         {
