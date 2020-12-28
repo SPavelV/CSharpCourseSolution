@@ -9,7 +9,37 @@ namespace CSharpCourse
     {
         static void Main(string[] args)
         {
+           
+        }
+        static void IntroToArray()
+        {
+            int[] a1;
+            a1 = new int[10];
 
+            int[] a2 = new int[5];
+
+            int[] a3 = new int[5] { 1, 3, -2, 5, 10 };
+
+            int[] a4 = { 1, 3, 2, 4, 5 };
+            Console.WriteLine(a4[0]);
+
+            int number = a4[4];
+            Console.WriteLine(number);
+
+            a4[4] = 6;
+            Console.WriteLine(a4[4]);
+
+            Console.WriteLine(a4.Length);
+            Console.WriteLine(a4[a4.Length - 1]);
+
+            string s1 = "abcdefgh";
+            char first = s1[0];
+            char last = s1[s1.Length - 1];
+
+            Console.WriteLine($"First:{first}. Last {last}.");
+
+            // impossible
+            // s1[0] = 'z';
         }
         static void MathDemo()
         {
