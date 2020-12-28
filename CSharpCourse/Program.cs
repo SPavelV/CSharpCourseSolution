@@ -9,7 +9,22 @@ namespace CSharpCourse
     {
         static void Main(string[] args)
         {
-       
+
+        }
+        static void MathDemo()
+        {
+            Console.WriteLine(Math.Pow(2, 3));
+            Console.WriteLine(Math.Sqrt(9));
+            Console.WriteLine(Math.Sqrt(8));
+
+            Console.WriteLine(Math.Round(1.7));
+            Console.WriteLine(Math.Round(1.4));
+
+            Console.WriteLine();
+
+            Console.WriteLine(Math.Round(2.5));
+            Console.WriteLine(Math.Round(2.5, MidpointRounding.AwayFromZero));
+            Console.WriteLine(Math.Round(2.5, MidpointRounding.ToEven));
         }
         static void Comments()
         {
