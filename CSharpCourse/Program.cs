@@ -9,9 +9,35 @@ namespace CSharpCourse
     {
         static void Main(string[] args)
         {
-
+           
         }
+        static void HomeWork1()
+        {
+            Console.WriteLine("Введите ваше имя:");
+            string input = Console.ReadLine();
+            Console.WriteLine($"Привет, {input}");
 
+            Console.WriteLine();
+
+            Console.WriteLine("Введите целое число X:");
+            int x = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите еще одно целое число Y:");
+            int y = int.Parse(Console.ReadLine());
+            Console.WriteLine($"X: {x}, Y: {y}");
+
+            Console.WriteLine();
+
+            int z = x;
+            x = y;
+            y = z;
+            Console.WriteLine($"Меняем значение переменных X: {x}, Y: {y}");
+
+
+            Console.WriteLine("Введите целое число: ");
+            int inputNum = int.Parse(Console.ReadLine());
+            string inputNumLength = inputNum.ToString();
+            Console.WriteLine($"Число {inputNum} содержит {inputNumLength} чисел");
+        }
         static void DateTimeIntro()
         {
             DateTime now = DateTime.Now;
