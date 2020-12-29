@@ -11,6 +11,20 @@ namespace CSharpCourse
         {
            
         }
+        static void SquareTriangle()
+        {
+            Console.WriteLine("Введите длину первой стороны треугольника:");
+            double ab = double.Parse(Console.ReadLine());
+            Console.WriteLine("Введите длину второй стороны треугольника:");
+            double bc = double.Parse(Console.ReadLine());
+            Console.WriteLine("Введите длину третей стороны треугольника:");
+            double ca = double.Parse(Console.ReadLine());
+
+            double semyPerimeter = (ab + bc + ca) / 2;
+            double areaTreangle = Math.Sqrt(semyPerimeter * (semyPerimeter - ab) * (semyPerimeter - bc) * (semyPerimeter - ca));
+
+            Console.WriteLine($"Площадь треугольника: {areaTreangle}");
+        }
         static void HomeWork1()
         {
             Console.WriteLine("Введите ваше имя:");
