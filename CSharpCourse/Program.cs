@@ -9,7 +9,36 @@ namespace CSharpCourse
     {
         static void Main(string[] args)
         {
-           
+          
+        }
+        static void BodyMassIndex()
+        {
+            Console.WriteLine("Введите ваше имя:");
+            string firstName = Console.ReadLine();
+
+            Console.WriteLine("Введите вашу фамилию:");
+            string lastName = Console.ReadLine();
+
+            Console.WriteLine("Введите возраст:");
+            double age = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Введите ваш вес(кг):");
+            double weight = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Введите ваш рост(м):");
+            double height = double.Parse(Console.ReadLine());
+
+            double bodyMassIndex = weight / (height * height);
+
+            string profile =
+                $"Ваш профиль:{Environment.NewLine}"
+                + $"Полное имя: {firstName} {lastName}{Environment.NewLine}"
+                + $"Возраст: {age}{Environment.NewLine}"
+                + $"Вес: {weight}{Environment.NewLine}"
+                + $"Рост: {height}{Environment.NewLine}"
+                + $"Индекс массы тела: {bodyMassIndex}";
+
+            Console.WriteLine(profile);
         }
         static void SquareTriangle()
         {
