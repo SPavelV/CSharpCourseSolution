@@ -6,7 +6,19 @@ namespace B_ControlFlow
     {
         static void Main(string[] args)
         {
-          
+            GetMax();
+        }
+
+        static void GetMax()
+        {
+            Console.WriteLine("Введите целое чесло:");
+            int num1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите еще целое чесло:");
+            int num2 = int.Parse(Console.ReadLine());
+
+            int max = num1 > num2 ? num1 : num2;
+
+            Console.WriteLine($"Максимальное число: {max}");
         }
 
         static void IfElse()
