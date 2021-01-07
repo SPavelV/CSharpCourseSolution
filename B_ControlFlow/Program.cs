@@ -6,7 +6,37 @@ namespace B_ControlFlow
     {
         static void Main(string[] args)
         {
-         
+            
+        }
+
+        static void WhileDoWhile()
+        {
+            int age = 30;
+
+            while (age < 18)
+            {
+                Console.WriteLine("First while loop");
+                Console.WriteLine("What is your age?");
+                age = int.Parse(Console.ReadLine());
+            }
+
+
+            do
+            {
+                Console.WriteLine("Do\\While");
+                Console.WriteLine("What is your age?");
+                age = int.Parse(Console.ReadLine());
+
+            } while (age < 18);
+            Console.WriteLine("Good!");
+
+            int[] numbers = { 1, 2, 3, 4, 5 };
+            int i = 0;
+            while (i < numbers.Length)
+            {
+                Console.Write(numbers[i]);
+                i++;
+            }
         }
 
         static void NestedFor()
