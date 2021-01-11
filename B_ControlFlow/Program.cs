@@ -6,8 +6,40 @@ namespace B_ControlFlow
     {
         static void Main(string[] args)
         {
+            
+        }
 
-          
+        static void Fibonacci()
+        {
+            Console.WriteLine("Введите количество чисел фибоначчи");
+
+            int n = int.Parse(Console.ReadLine());
+
+            int[] fibonacci = new int[n];
+
+            int a0 = 0;
+            int a1 = 1;
+
+            fibonacci[0] = a0;
+            fibonacci[1] = a1;
+
+            for (int i = 2; i < n; i++)
+            {
+                int a = a0 + a1;
+                fibonacci[i] = a;
+
+                a0 = a1;
+                a1 = a;
+            }
+
+            Console.Write("Фибоначчи: ");
+
+            foreach (int cur in fibonacci)
+            {
+                Console.Write($"{cur} ");
+            }
+
+            Console.ReadLine();
         }
 
         static void SwithcCase()
