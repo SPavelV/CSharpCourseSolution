@@ -6,7 +6,41 @@ namespace B_ControlFlow
     {
         static void Main(string[] args)
         {
-            
+  
+        }
+
+        static void Avarage()
+        {
+            int[] numbers = new int[10];
+
+            int inputCount = 0;
+
+            while (inputCount < 10)
+            {
+                int number = int.Parse(Console.ReadLine());
+                numbers[inputCount] = number;
+
+                inputCount++;
+
+                if (number == 0)
+                    break;
+
+            }
+
+            int sum = 0;
+            int count = 0;
+
+            foreach (int n in numbers)
+            {
+                if (n > 0 && n % 3 == 0)
+                {
+                    sum += n;
+                    count++;
+                }
+            }
+
+            double avarage = (double)sum / count;
+            Console.WriteLine($"Avarage: {avarage}");
         }
 
         static void Fibonacci()
