@@ -7,6 +7,32 @@ namespace B_ControlFlow
         static void Main(string[] args)
         {
          
+
+        }
+
+        static void UserLogin()
+        {
+            string login = "jonhsilver";
+            string password = "qwerty";
+            int count = 0;
+            while (count < 3)
+            {
+                Console.WriteLine("Введите логин");
+                string inputLogin = Console.ReadLine();
+                Console.WriteLine("Введите пароль");
+                string inputPassword = Console.ReadLine();
+
+                if (inputLogin == login && inputPassword == password)
+                {
+                    Console.WriteLine("Enter the System");
+                    break;
+                }
+                count++;
+            }
+            if (count == 3)
+            {
+                Console.WriteLine("The number of available tries have been exceeded");
+            }
         }
 
         static void Factorial()
