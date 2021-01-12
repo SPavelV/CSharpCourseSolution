@@ -6,7 +6,20 @@ namespace B_ControlFlow
     {
         static void Main(string[] args)
         {
-  
+         
+        }
+
+        static void Factorial()
+        {
+            Console.WriteLine("Введите целое число >= 0");
+            int number = int.Parse(Console.ReadLine());
+            long factorial = 1;
+            for (int i = number; i != 0; i--)
+            {
+                factorial *= i;
+            }
+
+            Console.WriteLine($"Факториал {number} = {factorial}");
         }
 
         static void Avarage()
