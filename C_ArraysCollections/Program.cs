@@ -11,6 +11,76 @@ namespace C_ArraysCollections
            
         }
 
+        static void Dictionary()
+        {
+            var people = new Dictionary<int, string>();
+
+            people.Add(1, "Jonh");
+            people.Add(2, "Bob");
+            people.Add(3, "Alice");
+
+            people = new Dictionary<int, string>()
+            {
+                {1, "Jonh" },
+                {2, "Alice" },
+                {3, "Bob" }
+            };
+
+            string name = people[1];
+            Console.WriteLine(name);
+
+            Console.WriteLine("Iterating over keys");
+            Dictionary<int, string>.KeyCollection keys = people.Keys;
+            foreach (var item in keys)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("Iterating over values");
+            Dictionary<int, string>.ValueCollection values = people.Values;
+
+            foreach (var item in values)
+            {
+                Console.WriteLine(item);
+            }
+
+            foreach (var pair in people)
+            {
+                Console.WriteLine($"Key:{pair.Key}. Value:{pair.Value}");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine($"Count={people.Count}");
+
+            bool containsKey = people.ContainsKey(2);
+
+            bool containsValue = people.ContainsValue("John");
+
+            Console.WriteLine($"Contains key:{containsKey}. Contains value:{containsValue}");
+
+            people.Remove(1);
+
+            if (people.TryAdd(2, "Elias"))
+            {
+                Console.WriteLine("Added succesfully");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add using key 2");
+            }
+
+            if (people.TryGetValue(2, out string val))
+            {
+                Console.WriteLine($"Key 2, Val={val}");
+            }
+            else
+            {
+                Console.WriteLine("Failed to get");
+            }
+
+            people.Clear();
+        }
+
         static void ListDemo()
         {
             var intList = new List<int>() { 1, 4, 2, 7, 5, 9, 12 };
