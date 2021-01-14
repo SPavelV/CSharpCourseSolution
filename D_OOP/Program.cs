@@ -2,12 +2,14 @@
 
 namespace D_OOP
 {
-    class Program
+   class Program
     {
         static void Main(string[] args)
         {
             Character c = new Character();
-            //c.
+            c.Hit(10);
+
+            Console.WriteLine(c.Health);
         }
     }
 }

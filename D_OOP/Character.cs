@@ -4,11 +4,14 @@ using System.Text;
 
 namespace D_OOP
 {
-    class Character
+    public class Character
     {
-        int Health = 100;
+        // public
+        // internal
+        // protected
+        public int Health = 100;
 
-        void Hit(int damage)
+        public void Hit(int damage)
         {
             Health -= damage;
         }

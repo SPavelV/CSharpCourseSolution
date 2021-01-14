@@ -9,4 +9,8 @@
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\D_OOP\D_OOP.csproj" />
+  </ItemGroup>
+
 </Project>
