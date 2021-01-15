@@ -9,10 +9,26 @@ namespace D_OOP
         // public
         // internal
         // protected
-        public int Health = 100;
+        private int health = 100;
+
+        public int Health
+        {
+            get
+            {
+                return health;
+            }
+            private set
+            {
+                health = value;
+            }
+        }
 
         public void Hit(int damage)
         {
+            if (damage > health)
+                damage = health;
+            
+            //health -= damage;
             Health -= damage;
         }
     }

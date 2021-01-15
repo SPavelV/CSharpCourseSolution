@@ -11,7 +11,7 @@ namespace CSharpCourse
         static void Main(string[] args)
         {
             Character c = new Character();
-            c.Hit(10);
+            c.Hit(120);
 
             Console.WriteLine(c.Health);
         }

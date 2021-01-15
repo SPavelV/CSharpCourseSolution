@@ -9,7 +9,7 @@ namespace D_OOP
             Character c = new Character();
             c.Hit(10);
 
-            Console.WriteLine(c.Health);
+            Console.WriteLine(c.health);
         }
     }
 }
