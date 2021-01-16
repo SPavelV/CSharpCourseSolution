@@ -13,7 +13,7 @@ namespace CSharpCourse
             Character c = new Character();
             c.Hit(120);
 
-            Console.WriteLine(c.GetHealth());
+            Console.WriteLine(c.Health);
         }
         static void BodyMassIndex()
         {
