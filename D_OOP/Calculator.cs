@@ -6,6 +6,30 @@ namespace D_OOP
 {
     public class Calculator
     {
+        public double Avarage(int[] numbers)
+        {
+            double sum = 0;
+
+            foreach (var n in numbers)
+            {
+                sum += n;
+            }
+
+            return sum / numbers.Length;
+        }
+
+        public double Avarage2(params int[] numbers)
+        {
+            double sum = 0;
+
+            foreach (var n in numbers)
+            {
+                sum += n;
+            }
+
+            return sum / numbers.Length;
+        }
+
         public double CalcTriangleSquare(double ab, double bc, double ca)
         {
             double semyPerimeter = (ab + bc + ca) / 2;
