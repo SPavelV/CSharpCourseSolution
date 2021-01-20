@@ -6,8 +6,12 @@ namespace D_OOP
     {
         static void Main(string[] args)
         {
-           
-            Console.WriteLine(RomanNumberConverter.Parse("XIV"));
+
+            Calculator calc = new Calculator();
+            double square1 = calc.CalcTriangleSquare(10, 20);
+            double square2 = calc.CalcTriangleSquare(10, 20, 30);
+            double square3 = calc.CalcTriangleSquare(10, 20, 50);
+            Console.WriteLine($"Square3={square3}");
         }
 
         static void TriangleSquare()
