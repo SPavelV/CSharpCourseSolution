@@ -52,10 +52,17 @@ namespace D_OOP
             return 0.5 * b * h;
         }
 
-        public static double CalcTriangleSquare(double a, double b, int alpha)
+        public static double CalcTriangleSquare(double a, double b, int alpha, bool isInRadians = false)
         {
-            double rads = alpha * Math.PI / 180;
-            return 0.5 * a * b * Math.Sin(rads);
+            if (isInRadians)
+            {
+                return 0.5 * a * b * Math.Sin(alpha);
+            }   
+            else
+            {
+                double rads = alpha * Math.PI / 180;
+                return 0.5 * a * b * Math.Sin(rads);
+            }
         }
     }
 }
