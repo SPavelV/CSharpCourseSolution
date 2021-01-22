@@ -4,10 +4,37 @@ using System.Text;
 
 namespace D_OOP
 {
+    public class Point2d
+    {
+        private int x;
+        private int y;
+
+        public Point2d(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+    }
     public class Character
     {
         private static int speed = 10;
         public int Health { get; private set; } = 100;
+
+        public string Race { get; private set; }
+
+        public int Armor { get; private set; }
+
+        public Character(string race)
+        {
+            Race = race;
+            Armor = 30;
+        }
+
+        public Character(string race, int armor)
+        {
+            Race = race;
+            Armor = armor;
+        }
 
         public void Hit(int damage)
         {
