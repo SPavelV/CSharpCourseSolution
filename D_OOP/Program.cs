@@ -5,7 +5,33 @@ namespace D_OOP
 {
    class Program
     {
+
         static void Main(string[] args)
+        {
+          
+        }
+
+        static void NullableValTypesDemo()
+        {
+            PointVal? pv = null;
+            if (pv.HasValue)
+            {
+                PointVal pv2 = pv.Value;
+                Console.WriteLine(pv.Value.X);
+                Console.WriteLine(pv2.X);
+            }
+            else
+            {
+
+            }
+
+            PointVal pv3 = pv.GetValueOrDefault();
+
+            PointRef c = null;
+            Console.WriteLine(c.X); // NullReferenceExcep
+        }
+
+        static void PassByRefDemo()
         {
             int a = 1;
             int b = 2;
@@ -19,7 +45,7 @@ namespace D_OOP
 
             AddNumbers(list);
 
-            foreach(var item in list)
+            foreach (var item in list)
             {
                 Console.WriteLine(item);
             }
