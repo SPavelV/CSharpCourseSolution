@@ -8,7 +8,45 @@ namespace D_OOP
 
         static void Main(string[] args)
         {
-          
+         
+        }
+
+        static void BoxingUnboxing()
+        {
+            //int x = 1;
+            //object obj = x;
+
+            //int y = (int)obj;
+
+            double pi = 3.14;
+            object obj1 = pi;
+
+            double number = (int)(double)obj1;
+            Console.WriteLine(number);
+        }
+
+        static void Do(object obj)
+        {
+            bool isPointRef = obj is PointRef;
+            if (isPointRef)
+            {
+                PointRef pr = (PointRef)obj;
+                Console.WriteLine(pr.X);
+            }
+            else
+            {
+                // do smth.
+            }
+
+            PointRef pr1 = obj as PointRef;
+            if(pr1 != null)
+            {
+                Console.WriteLine(pr1.X);
+            }
+            else
+            {
+                // do smth.
+            }
         }
 
         static void NullableValTypesDemo()
