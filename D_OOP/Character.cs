@@ -17,7 +17,7 @@ namespace D_OOP
     }
     public class Character
     {
-        private readonly int speed;
+        private int speed;
         public int Health { get; private set; } = 100;
 
         public string Race { get; private set; }
