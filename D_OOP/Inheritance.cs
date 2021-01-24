@@ -17,6 +17,8 @@ namespace D_OOP
         {
             Console.WriteLine("General Connecting Protocol...");
         }
+
+
     }
 
     public class ModelXTerminal : BankTerminal
