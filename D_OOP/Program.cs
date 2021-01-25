@@ -8,7 +8,10 @@ namespace D_OOP
 
         static void Main(string[] args)
         {
+            List<object> list = new List<object>() { 1, 2, 3 };
+
             IBaseCollection collection = new BaseList(4);
+            collection.AddRange(list);
             collection.Add(1);
 
             //Shape shape = new Shape();
