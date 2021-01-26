@@ -20,17 +20,49 @@ namespace D_OOP
         private int speed;
         public int Health { get; private set; } = 100;
 
-        public string Race { get; private set; }
+        public Race Race { get; private set; }
 
         public int Armor { get; private set; }
 
-        public Character(string race)
+        public Character(Race race)
         {
             Race = race;
-            Armor = 30;
+
+            switch (race)
+            {
+                case Race.Elf:
+                    Armor = 30;
+                    break;
+                case Race.Ork:
+                    Armor = 40;
+                    break;
+                case Race.Terrain:
+                    Armor = 20;
+                    break;
+                default:
+                    throw new AggregateException("Unknown race.");
+            }
+
+            if(race == Race.Terrain)
+            {
+                Armor = 20;
+            }
+            else if (race == Race.Ork)
+            {
+                Armor = 40;
+            }
+            else if(race == Race.Elf)
+            {
+                Armor = 30;
+            }
+            else
+            {
+                throw new AggregateException("Unknown race.");
+            }
+
         }
 
-        public Character(string race, int armor)
+        public Character(Race race, int armor)
         {
             Race = race;
             Armor = armor;

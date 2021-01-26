@@ -8,7 +8,7 @@ namespace D_OOP
 
         static void Main(string[] args)
         {
-          
+            Character c = new Character(Race.Elf);
         }
 
         static void ProblemOfRepresentatives()
