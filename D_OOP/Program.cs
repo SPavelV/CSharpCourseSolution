@@ -8,6 +8,29 @@ namespace D_OOP
 
         static void Main(string[] args)
         {
+          
+        }
+
+        static void ProblemOfRepresentatives()
+        {
+            IShape rect = new Rect() { Height = 2, Width = 5 };
+            IShape square = new Square { SideLength = 10 };
+
+            Console.WriteLine($"Rect area = {rect.CalcSquare()}");
+            Console.WriteLine($"Square area = {square.CalcSquare()}");
+
+            //Rect rect = new Rect { Height = 2, Width = 5 };
+            //int rectArea = AreaCalculator.CalcSquare(rect);
+            //Console.WriteLine($"Rect area = {rectArea}");
+
+            //Rect square = new Square { Height = 2, Width = 10 };
+            //AreaCalculator.CalcSquare(square);
+
+            Console.ReadLine();
+        }
+
+        static void CallingThroughInterface()
+        {
             List<object> list = new List<object>() { 1, 2, 3 };
 
             IBaseCollection collection = new BaseList(4);
@@ -15,18 +38,19 @@ namespace D_OOP
             collection.Add(1);
 
             //Shape shape = new Shape();
+        }
 
+        static void PolymorphisDemo()
+        {
             Shape[] shapes = new Shape[2];
             shapes[0] = new Triangle(10, 20, 30);
             shapes[1] = new Rectangle(5, 10);
 
-            foreach(Shape shape in shapes)
+            foreach (Shape shape in shapes)
             {
                 shape.Draw();
                 Console.WriteLine(shape.Perimeter());
             }
-
-            Console.ReadLine();
         }
 
         static void BoxingUnboxing()
