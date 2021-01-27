@@ -4,9 +4,9 @@ using System.Text;
 
 namespace D_OOP
 {
-    public class MyStack
+    public class MyStack<T>
     {
-        private object[] _items;
+        private T[] _items;
 
         public int Count { get; private set; }
 
@@ -21,19 +21,19 @@ namespace D_OOP
         public MyStack()
         {
             const int defaultCapacity = 4;
-            _items = new object[defaultCapacity];
+            _items = new T[defaultCapacity];
         }
 
         public MyStack(int capacity)
         {
-            _items = new object[capacity];
+            _items = new T[capacity];
         }
 
-        public void Push(object item)
+        public void Push(T item)
         {
             if (_items.Length == Count)
             {
-                object[] largeArray = new object[Count * 2];
+                T[] largeArray = new T[Count * 2];
                 Array.Copy(_items, largeArray, Count);
 
                 _items = largeArray;
@@ -49,10 +49,10 @@ namespace D_OOP
                 throw new InvalidOperationException();
             }
 
-            _items[--Count] = null;
+            _items[--Count] = default;
         }
 
-        public object Peek()
+        public T Peek()
         {
             if (Count == 0)
             {

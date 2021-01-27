@@ -8,15 +8,10 @@ namespace D_OOP
 
         static void Main(string[] args)
         {
-            MyStack ms = new MyStack();
+            MyStack<int> ms = new MyStack<int>();
             ms.Push(1);
             ms.Push(2);
             ms.Push(3);
-            ms.Push("abra");
-            ms.Push(false);
-            ms.Push('a');
-            ms.Push(0.3);
-            ms.Push(new Character(Race.Elf));
 
             while(ms.Count != 0)
             {
