@@ -9,9 +9,16 @@ namespace D_OOP
         static void Main(string[] args)
         {
             MyStack<int> ms = new MyStack<int>();
+
             ms.Push(1);
             ms.Push(2);
             ms.Push(3);
+
+            foreach(var item in ms){
+                Console.WriteLine(item);
+            }
+
+            Console.ReadLine();
 
             while(ms.Count != 0)
             {
