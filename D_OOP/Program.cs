@@ -8,7 +8,35 @@ namespace D_OOP
 
         static void Main(string[] args)
         {
-            Character c = new Character(Race.Elf);
+            MyStack ms = new MyStack();
+            ms.Push(1);
+            ms.Push(2);
+            ms.Push(3);
+            ms.Push("abra");
+            ms.Push(false);
+            ms.Push('a');
+            ms.Push(0.3);
+            ms.Push(new Character(Race.Elf));
+
+            while(ms.Count != 0)
+            {
+                Console.WriteLine((int)ms.Peek());
+                ms.Pop();
+            }
+
+            Console.WriteLine(ms.Peek());
+
+            ms.Pop();
+
+            Console.WriteLine(ms.Peek());
+
+            ms.Push(3);
+            ms.Push(4);
+            ms.Push(5);
+
+            Console.WriteLine(ms.Peek());
+
+            Console.ReadLine();
         }
 
         static void ProblemOfRepresentatives()
