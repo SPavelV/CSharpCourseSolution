@@ -1,7 +1,14 @@
 ﻿using System;
+using System.IO;
 
 namespace E_Exceptions
 {
+    // custom exception type)
+    public class CreditCardWithDrawException : Exception
+    {
+
+    }
+
     class Program
     {
         static void Main(string[] args)

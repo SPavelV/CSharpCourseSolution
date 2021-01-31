@@ -24,6 +24,8 @@ namespace D_OOP
 
         public int Armor { get; private set; }
 
+        public string Name { get; private set; }
+
         public Character(Race race)
         {
             Race = race;
@@ -62,6 +64,18 @@ namespace D_OOP
 
         }
 
+        public Character(string name, int armor)
+        {
+            if (name == null)
+                throw new ArgumentNullException("name arg can't be null");
+
+            if (armor < 0 || armor > 100)
+                throw new ArgumentException("armor can't be less than 0 or greater than 100");
+
+            Name = name;
+            Armor = armor;
+        }
+        
         public Character(Race race, int armor)
         {
             Race = race;
@@ -77,6 +91,14 @@ namespace D_OOP
 
         public void Hit(int damage)
         {
+            if(Health == 0)
+            {
+                throw new InvalidOperationException("Can't hit a dead character");
+            }
+
+            if (damage > Health)
+                throw new ArgumentException("damage can't be greater than current Health");
+
             if (damage > Health)
                 damage = Health;
 
