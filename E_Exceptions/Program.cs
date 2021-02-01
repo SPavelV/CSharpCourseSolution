@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace E_Exceptions
 {
@@ -12,6 +14,84 @@ namespace E_Exceptions
     class Program
     {
         static void Main(string[] args)
+        {
+
+            IEnumerable<string> lines = File.ReadLines("text.txt");
+
+            File.WriteAllText("test_2.txt", "My name is John");
+            File.WriteAllLines("test_3.txt", new string[] { "My name\n", "is John" });
+            File.WriteAllBytes("test_4.txt", new byte[] {72, 101, 108, 108, 111});
+
+            string allText = File.ReadAllText("test_2.txt");
+            Console.WriteLine(allText);
+
+            string[] allLines = File.ReadAllLines("test_3.txt");
+            Console.WriteLine(allLines[0]);
+            Console.WriteLine(allLines[1]);
+
+            byte[] bytes = File.ReadAllBytes("test_4.txt");
+            Console.WriteLine(Encoding.ASCII.GetString(bytes));
+
+            Console.ReadLine();
+
+            Stream fs = new FileStream("test.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+
+            try
+            {
+                string str = "Hello, World";
+                byte[] strInBytes = Encoding.ASCII.GetBytes(str);
+
+                fs.Write(strInBytes, 0, strInBytes.Length);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Error: {ex.ToString()}");
+            }
+            finally
+            {
+                fs.Close();
+            }
+
+            Console.WriteLine("Now reading:");
+
+            using (Stream readingStream = new FileStream("test.txt", FileMode.Open, FileAccess.Read))
+            {
+                byte[] temp = new byte[readingStream.Length];
+
+                int bytesToRead = (int)readingStream.Length;
+                int bytesRead = 0;
+
+                while(bytesToRead > 0)
+                {
+                    int n = readingStream.Read(temp, bytesRead, bytesToRead);
+
+                    if (n == 0)
+                        break;
+
+                    bytesRead += n;
+                    bytesToRead -= n;
+
+                    string str = Encoding.ASCII.GetString(temp, 0, temp.Length);
+
+                    Console.WriteLine(str);
+
+                    Console.ReadLine();
+                }
+            }
+
+            //Stream readingStream = null;
+            //try
+            //{
+            //    readingStream = new FileStream("test.txt", FileMode.Open, FileAccess.Read);
+            //}
+            //finally
+            //{
+            //    readingStream.Dispose();
+            //}
+        }
+
+        static void ExceptionsDemo()
         {
             FileStream file = null;
 
@@ -61,4 +141,5 @@ namespace E_Exceptions
             Console.WriteLine(number);
         }
     }
+
 }
