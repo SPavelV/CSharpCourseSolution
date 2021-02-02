@@ -15,12 +15,56 @@ namespace E_Exceptions
     {
         static void Main(string[] args)
         {
+            try
+            {
+                DirFileDemo();
+            }
+            catch(Exception ex)
+            {
 
+            }
+        }
+
+        static void DirFileDemo()
+        {
+            //File.Copy("text.txt", @"G:\learn\CSharp\CSharpCourseSolution\test_copy.txt", overwrite: true);
+            File.Copy("text.txt", "test_copy.txt", overwrite: true);
+
+            File.Move("test_copy.txt", "test_copy_renamed.txt");
+
+            File.Delete("test_copy.txt");
+
+
+            if (File.Exists("test.txt"))
+            {
+                File.AppendAllText("test.txt", "bla");
+            }
+
+            File.Replace("test_2.txt", "test_3.txt", "text_backup.txt");
+
+            bool existsDir = Directory.Exists(@"c:\tmp");
+
+            if (existsDir)
+            {
+                var files = Directory.EnumerateFiles(@"C:\tmp", "*.txt", SearchOption.AllDirectories);
+                foreach(var file in files)
+                {
+                    Console.WriteLine(file);
+                }
+            }
+
+            //Directory.Delete()
+
+            //Path.Combine(@"C:\tmp", "\\bla", "file.txt");
+        }
+
+        static void FileDemo()
+        {
             IEnumerable<string> lines = File.ReadLines("text.txt");
 
             File.WriteAllText("test_2.txt", "My name is John");
             File.WriteAllLines("test_3.txt", new string[] { "My name\n", "is John" });
-            File.WriteAllBytes("test_4.txt", new byte[] {72, 101, 108, 108, 111});
+            File.WriteAllBytes("test_4.txt", new byte[] { 72, 101, 108, 108, 111 });
 
             string allText = File.ReadAllText("test_2.txt");
             Console.WriteLine(allText);
@@ -62,7 +106,7 @@ namespace E_Exceptions
                 int bytesToRead = (int)readingStream.Length;
                 int bytesRead = 0;
 
-                while(bytesToRead > 0)
+                while (bytesToRead > 0)
                 {
                     int n = readingStream.Read(temp, bytesRead, bytesToRead);
 
