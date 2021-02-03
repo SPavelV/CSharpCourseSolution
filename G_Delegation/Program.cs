@@ -1,13 +1,18 @@
 ﻿using System;
+using System.Timers;
 
 namespace G_Delegation
 {
     public class Car
     {
         int speed = 0;
-        public delegate void TooFast(int currentSpeed);
 
-        private TooFast tooFast;
+        public event Action<int> TooFastDriving;
+        //public event Func<int, string> TooFastDriving;
+
+        //public delegate void TooFast(int currentSpeed);
+
+        //private TooFast tooFast;
 
         public void Start()
         {
@@ -20,7 +25,8 @@ namespace G_Delegation
 
             if(speed > 80)
             {
-                tooFast(speed);
+                if(TooFastDriving !=null)
+                    TooFastDriving(speed);
             }
         }
 
@@ -29,18 +35,34 @@ namespace G_Delegation
             speed = 0;
         }
 
-        public void RegisterOnTooFast(TooFast tooFast)
-        {
-            this.tooFast = tooFast;
-        }
+        //public void RegisterOnTooFast(TooFast tooFast)
+        //{
+        //    this.tooFast += tooFast;
+        //}
+
+        //public void UnregisterOnTooFast(TooFast tooFast)
+        //{
+        //    this.tooFast -= tooFast;
+        //}
     }
     class Program
     {
         static Car car;
         static void Main(string[] args)
         {
+            Timer timer = new Timer();
+            timer.Elapsed += Timer_Elapsed;
+
+            timer.Interval = 5000;
+            timer.Start();
+
+            Console.ReadLine();
+
             car = new Car();
-            car.RegisterOnTooFast(HandleOnTooFast);
+            car.TooFastDriving += HandleOnTooFast;
+            car.TooFastDriving += HandleOnTooFast;
+
+            car.TooFastDriving -= HandleOnTooFast;
 
             car.Start();
 
@@ -50,6 +72,12 @@ namespace G_Delegation
             }
 
             Console.ReadLine();
+        }
+
+        private static void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            //var timer = (Timer)sender;
+            Console.WriteLine("Handler Timer Elapsed Event");
         }
 
         private static void HandleOnTooFast(int speed)
