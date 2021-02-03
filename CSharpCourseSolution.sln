@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_Exceptions_Files", "E_Exc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F_Practice", "D_Practice\F_Practice.csproj", "{EFD38D54-5629-46EA-A528-7B83AD26EC97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "G_Delegation", "G_Delegation\G_Delegation.csproj", "{4C4B0B89-A619-4111-96F7-4F881E9FD94F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{EFD38D54-5629-46EA-A528-7B83AD26EC97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFD38D54-5629-46EA-A528-7B83AD26EC97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFD38D54-5629-46EA-A528-7B83AD26EC97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C4B0B89-A619-4111-96F7-4F881E9FD94F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C4B0B89-A619-4111-96F7-4F881E9FD94F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C4B0B89-A619-4111-96F7-4F881E9FD94F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C4B0B89-A619-4111-96F7-4F881E9FD94F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
