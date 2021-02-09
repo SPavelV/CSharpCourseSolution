@@ -6,27 +6,33 @@ using System.Timers;
 
 namespace G_Delegation
 {
-    public static class LinqExtensions
-    {
-        public static void ForEach<T>(this IEnumerable<T> source, Action<T> action)
-        {
-            if (source == null)
-                throw new ArgumentNullException();
 
-            foreach (var item in source)
-            {
-                action(item);
-            }
-        }
-    }
     class Program
     {
-        static Car car;
+
+
         static void Main(string[] args)
         {
-            DisplayLargestFilesWithLinq(@"E:\games");
-            DisplayLargestFilesWithoutLinq(@"E:\games");
+            MinMaxSumAverage("Top100ChessPlayers.csv");
+
             Console.ReadLine();
+        }
+
+
+        static void MinMaxSumAverage(string file)
+        {
+            IEnumerable<ChessPlayer> list = File.ReadAllLines(file)
+                                        .Skip(1)
+                                        .Select(x => ChessPlayer.ParseFideCsv(x))
+                                        .Where(player => player.BirthYear > 1988)
+                                        .OrderByDescending(player => player.Rating)
+                                        .ThenBy(player => player.Country)
+                                        .Take(10);
+            //.ToList();
+
+            Console.WriteLine($"The lowest rating int TOP 10: {list.Min(x => x.Rating)}");
+            Console.WriteLine($"The highest rating int TOP 10: {list.Max(x => x.Rating)}");
+            Console.WriteLine($"The average rating int TOP 10: {list.Average(x => x.Rating)}");
         }
 
         private static void DisplayLargestFilesWithLinq(string pathToDir)
@@ -73,7 +79,7 @@ namespace G_Delegation
             if (x.Length > y.Length) return -1;
             return 1;
         }
-
+        static Car car;
         private static void EventDemo()
         {
             Timer timer = new Timer();
