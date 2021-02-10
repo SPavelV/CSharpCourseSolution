@@ -13,7 +13,16 @@ namespace G_Delegation
 
         static void Main(string[] args)
         {
-            LinqDemo("Top100ChessPlayers.csv");
+            var list = new List<int> { 1, 2, 3 };
+            //var query = list.Where(c => c >= 2);
+            var query = list.Where(c => c >= 2).ToList();
+            list.Remove(3);
+
+            //Console.WriteLine(query.Count());
+            foreach(var item in query)
+            {
+                Console.WriteLine(item);
+            }
 
             Console.ReadLine();
         }
@@ -27,8 +36,19 @@ namespace G_Delegation
                                         .Where(player => player.BirthYear > 1988)
                                         .OrderByDescending(player => player.Rating)
                                         .ThenBy(player => player.Country)
-                                        .Take(10);
+                                        .Take(10)
+                                        .ToList();
             //.ToList();
+
+            foreach(var player in list)
+            {
+                Console.WriteLine(player);
+            }
+
+            foreach(var player in list)
+            {
+                Console.WriteLine(player);
+            }
 
             Console.WriteLine($"The lowest rating int TOP 10: {list.Min(x => x.Rating)}");
             Console.WriteLine($"The highest rating int TOP 10: {list.Max(x => x.Rating)}");
