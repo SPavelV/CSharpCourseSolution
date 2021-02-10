@@ -13,13 +13,13 @@ namespace G_Delegation
 
         static void Main(string[] args)
         {
-            MinMaxSumAverage("Top100ChessPlayers.csv");
+            LinqDemo("Top100ChessPlayers.csv");
 
             Console.ReadLine();
         }
 
 
-        static void MinMaxSumAverage(string file)
+        static void LinqDemo(string file)
         {
             IEnumerable<ChessPlayer> list = File.ReadAllLines(file)
                                         .Skip(1)
@@ -33,6 +33,26 @@ namespace G_Delegation
             Console.WriteLine($"The lowest rating int TOP 10: {list.Min(x => x.Rating)}");
             Console.WriteLine($"The highest rating int TOP 10: {list.Max(x => x.Rating)}");
             Console.WriteLine($"The average rating int TOP 10: {list.Average(x => x.Rating)}");
+
+            Console.WriteLine(list.First());
+            Console.WriteLine(list.Last());
+
+            Console.WriteLine(list.First( player => player.Country == "USA"));
+            Console.WriteLine(list.Last( player => player.Country == "USA"));
+
+            var firstFromBra = list.FirstOrDefault(player => player.Country == "Bra");
+            if (firstFromBra != null)
+            {
+                Console.WriteLine(firstFromBra.LastName);
+            }
+
+            var lastFromBra = list.LastOrDefault(player => player.Country == "Bra");
+
+            Console.WriteLine(list.Single(player=>player.Country == "Bra"));
+            Console.WriteLine(list.SingleOrDefault(player=>player.Country == "Bra"));
+
+            Console.WriteLine(list.SingleOrDefault(player=>player.Country == "USA"));
+
         }
 
         private static void DisplayLargestFilesWithLinq(string pathToDir)
