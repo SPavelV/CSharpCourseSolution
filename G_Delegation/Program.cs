@@ -10,8 +10,80 @@ namespace G_Delegation
     class Program
     {
 
-
         static void Main(string[] args)
+        {
+            RemoveAllDemo();
+        }
+
+        static void RemoveAllDemo()
+        {
+            var list = new List<int> { 0, 1, 2, 3, 4, 5 };
+            list.RemoveAll(x => x <= 3);
+
+            foreach(var item in list)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        static void RemoveInFor()
+        {
+            var list = new List<int> { 0, 1, 2, 3, 4, 5 };
+            for(int i = 0; i < list.Count; i++)
+            {
+                var item = list[i];
+                if(item <= 3)
+                {
+                    list.Remove(item);
+                    i--;
+                }
+            }
+
+            Console.WriteLine(list.Count == 2);
+        }
+
+        static void RemoveInForBackwards()
+        {
+            var list = new List<int> { 0, 1, 2, 3, 4, 5 };
+            for (int i = list.Count - 1; i >=0 ; i--)
+            {
+                var item = list[i];
+                if (item <= 3)
+                {
+                    list.Remove(item);
+                }
+            }
+
+            Console.WriteLine(list.Count == 2);
+        }
+
+        static void RemoveInForeach()
+        {
+            var list = new List<int> { 0, 1, 2, 3, 4, 5 };
+            foreach(var item in list)
+            {
+                if(item % 2 == 0)
+                {
+                    list.Remove(item);
+                }
+                Console.WriteLine(list.Count);
+            }
+
+            List<int>.Enumerator ennumerator = list.GetEnumerator();
+            try
+            {
+                while (ennumerator.MoveNext())
+                {
+                    int item = ennumerator.Current;
+                }
+            }
+            finally
+            {
+                ennumerator.Dispose();
+            }
+        } 
+
+        static void DeferredExecutionDemo()
         {
             var list = new List<int> { 1, 2, 3 };
             //var query = list.Where(c => c >= 2);
@@ -19,7 +91,7 @@ namespace G_Delegation
             list.Remove(3);
 
             //Console.WriteLine(query.Count());
-            foreach(var item in query)
+            foreach (var item in query)
             {
                 Console.WriteLine(item);
             }
@@ -27,18 +99,28 @@ namespace G_Delegation
             Console.ReadLine();
         }
 
-
         static void LinqDemo(string file)
         {
             IEnumerable<ChessPlayer> list = File.ReadAllLines(file)
                                         .Skip(1)
                                         .Select(x => ChessPlayer.ParseFideCsv(x))
+                                        // old-style anonymus method syntax:
+                                        //.Where(delegate(ChessPlayer player) { return player.BirthYear > 1988; })
                                         .Where(player => player.BirthYear > 1988)
                                         .OrderByDescending(player => player.Rating)
                                         .ThenBy(player => player.Country)
                                         .Take(10)
                                         .ToList();
-            //.ToList();
+
+            // SQL-like syntax:
+            //IEnumerable<ChessPlayer> list2 = File.ReadAllLines(file)
+            //                                .Skip(1)
+            //                                .Select(ChessPlayer.ParseFideCsv);
+
+            //var filtered = from player in list2
+            //               where player.BirthYear > 1988
+            //               orderby player.Rating descending
+            //               select player;
 
             foreach(var player in list)
             {
